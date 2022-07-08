@@ -33,6 +33,6 @@ streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_rows)
 new_fruit = streamlit.text_input("What fruit would you like to add?")
 query = "INSERT INTO FRUIT_LOAD_LIST VALUES ('%s')" % new_fruit
-streamlist.write(query)
+streamlist.write('Query: ', query)
 my_cur.execute(query)
-streamlit.write("Thanks for adding %s" % new_fruit)
+streamlit.write("Thanks for adding ", new_fruit)
