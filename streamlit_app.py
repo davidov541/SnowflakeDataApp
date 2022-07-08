@@ -15,10 +15,10 @@ def get_fruit_load_list(my_cnx):
     return my_cur.fetchall()
 
 def insert_row_snowflake(my_cnx, fruit_name):
-  query = "INSERT INTO FRUIT_LOAD_LIST VALUES ('%s')" % fruit_name
-  my_cur.execute(query)
-  return query
-  #return "Thanks for adding %s" % fruit_name
+  with my_cnx.cursor() as my_cur:
+    query = "INSERT INTO FRUIT_LOAD_LIST VALUES ('%s')" % fruit_name
+    my_cur.execute(query)
+    return "Thanks for adding %s" % fruit_name
   
 streamlit.title("My parents healthy diner")
 streamlit.header('Breakfast Menu')
